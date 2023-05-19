@@ -1,0 +1,48 @@
+#container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/images/landingPageBg.png");
+  background-size: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+
+  #header {
+    #logo {
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    display: flex;
+    justify-content: space-between;
+
+    #actions {
+      display: flex;
+      align-items: center;
+
+      .seperatorLine {
+        width: 1px;
+        height: 30px;
+        background-color: #fff;
+        margin: 0 10px;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}

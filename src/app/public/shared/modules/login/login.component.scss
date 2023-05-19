@@ -1,0 +1,29 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  mat-progress-bar {
+    position: absolute;
+    top: 0;
+
+    left: 0;
+  }
+  #header {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  #content {
+    flex-grow: 1;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  #actions {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,33 @@
+<div id="container">
+  <mat-progress-bar *ngIf="processing" mode="indeterminate"></mat-progress-bar>
+  <div id="header">Login</div>
+
+  <div id="content" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        formControlName="password"
+      />
+    </mat-form-field>
+  </div>
+
+  <div id="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="login()"
+      [disabled]="!form.valid || processing"
+    >
+      Login
+    </button>
+    <button mat-raised-button>Cancel</button>
+  </div>
+</div>
