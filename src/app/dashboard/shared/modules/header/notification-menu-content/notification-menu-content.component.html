@@ -1,0 +1,22 @@
+<mat-tab-group style="width: 280px">
+  <mat-tab label="First">
+    <div (click)="$event.stopImmediatePropagation()">
+      <div class="header">
+        <button (click)="tabChange(1)" class="topLeftButton" mat-icon-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+        <h2>Notifications</h2>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Third">
+    <div (click)="$event.stopImmediatePropagation()">
+      <div class="header">
+        <button (click)="tabChange(0)" class="topLeftButton" mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h2>Notifications</h2>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

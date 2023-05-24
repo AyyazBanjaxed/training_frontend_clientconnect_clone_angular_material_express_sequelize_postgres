@@ -1,0 +1,66 @@
+<div id="container">
+  <div
+    matRipple
+    class="menuItem blue"
+    [routerLinkActive]="'active'"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLink="/dashboard"
+  >
+    <mat-icon>inbox</mat-icon> Inbox
+  </div>
+  <div matRipple class="menuItem blue"><mat-icon>forum</mat-icon> Archive</div>
+  <div matRipple class="menuItem">
+    <mat-icon style="color: #f07a19">access_time</mat-icon> Scheduled Messages
+  </div>
+  <div
+    matRipple
+    [routerLinkActive]="'active'"
+    class="menuItem"
+    [routerLink]="'/dashboard/contacts'"
+  >
+    <mat-icon style="color: #1ea362">contacts</mat-icon> Contacts
+  </div>
+
+  <div class="seperator"></div>
+  <div class="heading">Numbers</div>
+
+  <div matRipple class="menuItem" *ngFor="let number of phoneNumbers">
+    <mat-icon>call</mat-icon>
+    <div class="menuItemText">{{ number.number }}</div>
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="seperator"></div>
+  <div class="heading">Admin</div>
+
+  <div matRipple class="menuItem"><mat-icon>account_box</mat-icon> Account</div>
+  <div matRipple class="menuItem"><mat-icon>group</mat-icon> Users</div>
+  <div matRipple class="menuItem"><mat-icon>phone</mat-icon> Numbers</div>
+
+  <div class="seperator"></div>
+
+  <div matRipple class="menuItem" (click)="logout()">
+    <mat-icon>logout</mat-icon> Logout
+  </div>
+</div>

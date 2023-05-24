@@ -1,0 +1,89 @@
+::ng-deep {
+  .mat-menu-content {
+    padding: 0px !important;
+  }
+
+  .green {
+    background-color: #0f9d58 !important;
+  }
+}
+
+mat-toolbar {
+  transition: background-color 0.4s ease-in-out;
+}
+#headerContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  #logo {
+    cursor: pointer;
+  }
+  .seperator {
+    border-left: 1px solid #b1b1b1;
+    height: 30px;
+    margin: 0 20px;
+  }
+
+  #searchContainer {
+    flex-grow: 1;
+    mat-form-field {
+      font-size: 15px;
+      color: #fff;
+
+      width: 100%;
+
+      ::ng-deep .mat-input-element::placeholder {
+        color: #fff;
+      }
+
+      mat-icon {
+        margin-right: 10px;
+        transform: translateY(6px);
+      }
+    }
+  }
+}
+
+#accountMenuBody {
+  display: flex;
+  width: 280px;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  #avatar {
+    min-width: 50px;
+    mat-icon {
+      font-size: 50px;
+    }
+  }
+
+  #name {
+    font-size: 18px;
+    padding: 5px 0px;
+  }
+
+  #email {
+    font-size: 14px;
+    color: #707070;
+  }
+}
+
+#accountMenuActionButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #b1b1b1;
+  background-color: #ededed;
+  padding: 10px;
+  button {
+    flex: 1;
+  }
+}
+
+::ng-deep {
+  mat-tab-header {
+    display: none !important;
+  }
+}

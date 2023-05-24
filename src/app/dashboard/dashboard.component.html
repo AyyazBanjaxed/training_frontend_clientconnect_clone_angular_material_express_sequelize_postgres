@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div id="container">
+  <app-header (menuIconClicked)="drawer.toggle()"></app-header>
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <div id="contentContainer">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>

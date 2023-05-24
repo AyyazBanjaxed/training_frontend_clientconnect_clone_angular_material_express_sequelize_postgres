@@ -1,0 +1,81 @@
+<mat-toolbar
+  color="primary"
+  [ngClass]="{
+    green: this.router.url == '/dashboard/contacts',
+    orange: this.router.url == '/dashboard/scheduled'
+  }"
+>
+  <mat-toolbar-row>
+    <div id="headerContainer">
+      <button
+        (click)="menuIconClicked.emit()"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div id="logo" routerLink="/dashboard">
+        <img width="25" src="assets/images/msgIcon.png" /> Client Connect
+      </div>
+
+      <div class="seperator"></div>
+      <div id="searchContainer">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search" />
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div id="actionButtons">
+        <!-- Add bell icon and avatar image button -->
+        <button
+          [matMenuTriggerFor]="notificationMenu"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <button
+          [matMenuTriggerFor]="accountMenu"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #accountMenu="matMenu">
+  <div id="accountMenuBody">
+    <!-- avatar column -->
+    <div id="avatarColumn">
+      <div id="avatar">
+        <!-- icon button -->
+
+        <mat-icon>account_circle</mat-icon>
+      </div>
+    </div>
+    <div id="accountInfoColumn">
+      <div id="name">John Doe</div>
+      <div id="email">xyz@gmail.com</div>
+    </div>
+  </div>
+
+  <div id="accountMenuActionButtons">
+    <button mat-raised-button color="primary">Settings</button>
+    <button mat-raised-button (click)="authService.logout()">Sign out</button>
+  </div>
+</mat-menu>
+
+<mat-menu #notificationMenu="matMenu">
+  <div style="background-color: #ebebeb; min-height: 200px">
+    <app-notification-menu-content></app-notification-menu-content>
+  </div>
+</mat-menu>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { share } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   session: any;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     let localStorageSession = localStorage.getItem('session');
     this.session = localStorageSession
       ? JSON.parse(localStorageSession)
@@ -31,5 +32,19 @@ export class AuthService {
     });
 
     return ob;
+  }
+
+  logout() {
+    this.http
+      .get(environment.backendBaseUrl + '/user/logout', {
+        headers: {
+          Authorization: 'Bearer ' + this.session.token,
+        },
+      })
+      .subscribe();
+
+    this.session = undefined;
+    localStorage.removeItem('session');
+    this.router.navigate(['/']);
   }
 }
