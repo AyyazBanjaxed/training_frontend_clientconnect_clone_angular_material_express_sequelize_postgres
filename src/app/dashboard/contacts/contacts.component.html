@@ -1,1 +1,59 @@
-<h1>Contacts</h1>
+<div id="header">
+  <h1>Contacts</h1>
+  <button
+    (click)="deleteSelectedContacts()"
+    *ngIf="selectedContacts.length > 0"
+    mat-icon-button
+    matTooltip="Delete selected contacts"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+<div id="selectedContactsSelector" *ngIf="selectedContacts.length">
+  {{ selectedContacts.length }} selected
+</div>
+<mat-card>
+  <div id="newButton" matRipple>+ Create new contact</div>
+
+  <div class="table">
+    <div
+      class="row"
+      [ngClass]="{ selected: contact.selected }"
+      matRipple
+      *ngFor="let contact of contacts"
+      (mouseover)="contact.hover = true"
+      (mouseout)="contact.hover = false"
+    >
+      <div
+        class="col"
+        style="
+          width: 30px;
+          padding-right: 0px;
+          justify-content: center;
+          display: flex;
+        "
+      >
+        <div class="avatar" *ngIf="!contact.selected && !contact.hover">DA</div>
+
+        <mat-checkbox
+          *ngIf="contact.selected || contact.hover"
+          (change)="onSelectionChange(contact, $event)"
+        ></mat-checkbox>
+      </div>
+
+      <div class="col" style="width: 100px">{{ contact.name }}</div>
+      <div class="col" style="flex-grow: 1">{{ contact.phone }}</div>
+      <div class="col">
+        <ng-container *ngIf="contact.hover">
+          <button mat-icon-button><mat-icon>edit</mat-icon></button>
+          <button (click)="deleteContacts([contact.id])" mat-icon-button>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </ng-container>
+        <div *ngIf="!contact.hover" class="groupsCounter">
+          <mat-icon>groups</mat-icon> {{ contact.groups.length }}
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
