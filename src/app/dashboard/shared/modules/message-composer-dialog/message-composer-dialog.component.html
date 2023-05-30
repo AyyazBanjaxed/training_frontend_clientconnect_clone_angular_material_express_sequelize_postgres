@@ -1,0 +1,10 @@
+<app-new-conversation
+  (onBackClicked)="close()"
+  (onOpenConversation)="openConversation($event)"
+  *ngIf="!conversation"
+></app-new-conversation>
+<app-conversation
+  (onBackClicked)="conversation = undefined"
+  [conversation]="conversation"
+  *ngIf="conversation"
+></app-conversation>

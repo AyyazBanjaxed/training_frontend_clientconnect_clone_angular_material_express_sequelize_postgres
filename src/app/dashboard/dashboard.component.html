@@ -10,4 +10,14 @@
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>
+
+  <button
+    id="composeButton"
+    (click)="openMessageComposer()"
+    mat-fab
+    color="primary"
+    aria-label="Example icon button with a delete icon"
+  >
+    <mat-icon>forum</mat-icon>
+  </button>
 </div>

@@ -44,11 +44,21 @@
       <div class="col" style="width: 100px">{{ contact.name }}</div>
       <div class="col" style="flex-grow: 1">{{ contact.phone }}</div>
       <div class="col">
-        <ng-container *ngIf="contact.hover">
-          <button mat-icon-button><mat-icon>edit</mat-icon></button>
-          <button (click)="deleteContacts([contact.id])" mat-icon-button>
-            <mat-icon>delete_outline</mat-icon>
-          </button>
+        <ng-container>
+          <div
+            [ngClass]="{ hidden: !contact.hover }"
+            (mouseover)="contact.hover = true"
+            (mouseout)="
+              $event.stopImmediatePropagation();
+              $event.stopPropagation();
+              $event.preventDefault()
+            "
+          >
+            <button mat-icon-button><mat-icon>edit</mat-icon></button>
+            <button (click)="deleteContacts([contact.id])" mat-icon-button>
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </div>
         </ng-container>
         <div *ngIf="!contact.hover" class="groupsCounter">
           <mat-icon>groups</mat-icon> {{ contact.groups.length }}

@@ -1,0 +1,32 @@
+<div id="container">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button
+        (click)="onBackClicked.emit()"
+        style="margin-right: 20px"
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="content">
+        {{ conversation.contact.name }}
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div id="content">
+    <app-conversation-messages
+      [contact]="conversation.contact"
+      [number]="conversation.number"
+      [messages]="messages"
+    ></app-conversation-messages>
+  </div>
+
+  <div id="footer">
+    <app-message-composer
+      (onSubmit)="sendMessage($event)"
+    ></app-message-composer>
+  </div>
+</div>

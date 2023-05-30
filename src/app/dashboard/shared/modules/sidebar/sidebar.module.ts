@@ -6,6 +6,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [SidebarComponent],
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatMenuModule,
     RouterModule,
+    MatTooltipModule,
   ],
 })
 export class SidebarModule {}

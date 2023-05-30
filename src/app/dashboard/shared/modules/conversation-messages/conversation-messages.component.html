@@ -1,0 +1,11 @@
+<div id="container">
+  <app-message-bubble
+    [ngClass]="{
+      outgoing: message.direction === 'OUTGOING'
+    }"
+    [contact]="contact"
+    [number]="number"
+    *ngFor="let message of messages"
+    [message]="message"
+  ></app-message-bubble>
+</div>

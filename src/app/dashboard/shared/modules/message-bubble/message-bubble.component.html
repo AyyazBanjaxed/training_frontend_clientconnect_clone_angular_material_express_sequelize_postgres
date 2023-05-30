@@ -1,0 +1,23 @@
+<div
+  id="container"
+  [ngClass]="{
+    outgoing: message.direction === 'OUTGOING'
+  }"
+>
+  <div
+    class="avatar"
+    [matTooltip]="
+      message.direction === 'OUTGOING' ? contact.phone : number.number
+    "
+  >
+    DA
+  </div>
+  <div id="contentContainer">
+    <div id="content">
+      {{ message?.body }}
+    </div>
+    <div id="dateTime">
+      {{ message.createdAt | date : "short" }}
+    </div>
+  </div>
+</div>

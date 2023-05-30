@@ -1,0 +1,24 @@
+#container {
+  display: flex;
+  gap: 10px;
+
+  &.outgoing {
+    flex-direction: row-reverse;
+    #dateTime {
+      text-align: right;
+    }
+  }
+
+  #contentContainer {
+    #content {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+    }
+    #dateTime {
+      color: #707070;
+      font-size: 10px;
+      margin-top: 5px;
+    }
+  }
+}

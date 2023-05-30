@@ -1,0 +1,15 @@
+<div id="container" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Type your message</mat-label>
+    <textarea formControlName="message" matInput></textarea>
+  </mat-form-field>
+
+  <button
+    (click)="onSubmit.emit(form.value); form.reset()"
+    id="submit"
+    mat-mini-fab
+    color="primary"
+  >
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

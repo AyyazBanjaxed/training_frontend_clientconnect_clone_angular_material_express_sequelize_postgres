@@ -19,4 +19,11 @@
   #contentContainer {
     padding: 20px;
   }
+
+  #composeButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+  }
 }

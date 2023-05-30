@@ -1,0 +1,27 @@
+mat-form-field {
+  width: 100%;
+
+  ::ng-deep {
+    .mat-form-field-wrapper {
+      padding-bottom: 0px;
+    }
+  }
+}
+#container {
+  padding: 20px;
+  position: relative;
+
+  #submit {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    top: 0px;
+    margin: auto;
+    display: none;
+  }
+  &:hover {
+    #submit {
+      display: block;
+    }
+  }
+}

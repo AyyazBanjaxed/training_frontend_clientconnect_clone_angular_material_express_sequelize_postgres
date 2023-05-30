@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button
+      (click)="onBackClicked.emit()"
+      style="margin-right: 20px"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="content">
+      New Conversation
+      <ng-container *ngIf="selectedNumber">
+        ({{ selectedNumber.title || selectedNumber.number }})
+      </ng-container>
+    </div>
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <div style="width: 280px">
+        <h2>Select a number</h2>
+        <button
+          (click)="selectedNumber = numberItem"
+          [matTooltip]="numberItem.number"
+          matTooltipPosition="before"
+          mat-menu-item
+          *ngFor="let numberItem of numbers"
+        >
+          <mat-icon>phone</mat-icon>
+          <span>{{ numberItem.title || numberItem.number }}</span>
+        </button>
+      </div>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div id="content">
+  <mat-form-field appearance="outline">
+    <mat-label>Search contacts</mat-label>
+    <input matInput type="text" (keyup)="onSearchInputChange($event)" />
+  </mat-form-field>
+
+  <h2>Contacts</h2>
+
+  <div class="contacts">
+    <div
+      (click)="openConversation(contact)"
+      class="contact"
+      *ngFor="let contact of contacts"
+      matRipple
+    >
+      <div class="avatar">
+        <img [src]="contact.avatar" />
+      </div>
+      <div class="info">
+        <div class="name">{{ contact.name }}</div>
+        <div class="number">{{ contact.number }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="noContactsMsg" *ngIf="contacts.length < 1">
+    Search contacts to start a conversation
+  </div>
+</div>

@@ -24,9 +24,14 @@
   <div class="seperator"></div>
   <div class="heading">Numbers</div>
 
-  <div matRipple class="menuItem" *ngFor="let number of phoneNumbers">
+  <div
+    matRipple
+    class="menuItem"
+    *ngFor="let number of phoneNumbers"
+    [matTooltip]="number.number"
+  >
     <mat-icon>call</mat-icon>
-    <div class="menuItemText">{{ number.number }}</div>
+    <div class="menuItemText">{{ number.title || number.number }}</div>
 
     <button
       mat-icon-button
