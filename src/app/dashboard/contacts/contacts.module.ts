@@ -8,6 +8,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ContactEditorDialogModule } from '../shared/modules/contact-editor-dialog/contact-editor-dialog.module';
 
 @NgModule({
   declarations: [ContactsComponent],
@@ -19,6 +21,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    MatDialogModule,
+    ContactEditorDialogModule,
   ],
 })
 export class ContactsModule {}

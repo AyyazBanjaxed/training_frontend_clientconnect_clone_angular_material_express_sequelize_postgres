@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../shared/services/contacts.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactEditorDialogComponent } from '../shared/modules/contact-editor-dialog/contact-editor-dialog.component';
 
 @Component({
   selector: 'app-contacts',
@@ -8,10 +10,23 @@ import { ContactsService } from '../shared/services/contacts.service';
 })
 export class ContactsComponent implements OnInit {
   contacts: any[] = [];
-  constructor(private contactsService: ContactsService) {}
+  constructor(
+    private contactsService: ContactsService,
+    private dialog: MatDialog
+  ) {
+    this.openContactEditor();
+  }
 
   ngOnInit(): void {
     this.loadContacts();
+  }
+
+  openContactEditor() {
+    this.dialog.open(ContactEditorDialogComponent, {
+      width: '400px',
+      height: '420px',
+      panelClass: 'dialogPanel',
+    });
   }
 
   loadContacts() {

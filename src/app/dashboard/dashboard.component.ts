@@ -10,15 +10,13 @@ import { MessageComposerDialogComponent } from './shared/modules/message-compose
 export class DashboardComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  openMessageComposer() {
     this.dialog.open(MessageComposerDialogComponent, {
       width: '500px',
       height: '500px',
       panelClass: 'dialogPanel',
     });
-  }
-
-  openMessageComposer() {
-    this.dialog.open(MessageComposerDialogComponent);
   }
 }

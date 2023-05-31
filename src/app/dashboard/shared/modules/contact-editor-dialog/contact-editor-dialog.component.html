@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <h3>Create Contact</h3>
+</mat-toolbar>
+{{ form.value | json }}
+<div id="container" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input matInput placeholder="Phone" formControlName="phone" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Groups</mat-label>
+    <input
+      type="text"
+      placeholder="Pick one"
+      matInput
+      formControlName="groupIds"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete
+      [displayWith]="displayFn"
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+    >
+      <mat-option *ngFor="let group of groups" [value]="group">
+        {{ group.title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div style="display: flex; gap: 10px">
+    <button
+      [disabled]="!form.valid"
+      mat-raised-button
+      color="primary"
+      [matDialogClose]="form.value"
+    >
+      Create
+    </button>
+    <button mat-raised-button matDialogClose="">Cancel</button>
+  </div>
+</div>

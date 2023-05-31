@@ -3,17 +3,22 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { share } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
+import { io } from 'socket.io-client';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   session: any;
+  socket;
   constructor(private http: HttpClient, private router: Router) {
     let localStorageSession = localStorage.getItem('session');
     this.session = localStorageSession
       ? JSON.parse(localStorageSession)
       : undefined;
+
+    this.socket = io(environment.websocketBackendBaseUrl, {
+      query: { token: this.session?.token },
+    });
   }
 
   login({ email, password }: { email: string; password: string }) {

@@ -13,7 +13,9 @@
   {{ selectedContacts.length }} selected
 </div>
 <mat-card>
-  <div id="newButton" matRipple>+ Create new contact</div>
+  <div id="newButton" matRipple (click)="openContactEditor()">
+    + Create new contact
+  </div>
 
   <div class="table">
     <div
