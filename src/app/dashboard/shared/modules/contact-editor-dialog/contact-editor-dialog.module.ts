@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [ContactEditorDialogComponent],
@@ -20,6 +21,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ReactiveFormsModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatChipsModule,
   ],
 })
 export class ContactEditorDialogModule {}

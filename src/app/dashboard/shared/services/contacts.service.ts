@@ -19,6 +19,15 @@ export class ContactsService {
   }
 
   deleteContacts(ids: any[]) {
-    return this.httpClient.delete(environment.backendBaseUrl + '/contact/');
+    return this.httpClient.delete(environment.backendBaseUrl + '/contact', {
+      body: { ids },
+    });
+  }
+
+  createContacts(payload: any) {
+    return this.httpClient.post(
+      environment.backendBaseUrl + '/contact',
+      payload
+    );
   }
 }

@@ -13,19 +13,21 @@ export class ContactsComponent implements OnInit {
   constructor(
     private contactsService: ContactsService,
     private dialog: MatDialog
-  ) {
-    this.openContactEditor();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loadContacts();
   }
 
-  openContactEditor() {
-    this.dialog.open(ContactEditorDialogComponent, {
+  openContactEditor(contact?: any) {
+    let ob = this.dialog.open(ContactEditorDialogComponent, {
       width: '400px',
       height: '420px',
       panelClass: 'dialogPanel',
+      data: contact,
+    });
+    ob.afterClosed().subscribe((res) => {
+      this.loadContacts();
     });
   }
 

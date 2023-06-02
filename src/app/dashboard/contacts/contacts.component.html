@@ -56,7 +56,9 @@
               $event.preventDefault()
             "
           >
-            <button mat-icon-button><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="openContactEditor(contact)">
+              <mat-icon>edit</mat-icon>
+            </button>
             <button (click)="deleteContacts([contact.id])" mat-icon-button>
               <mat-icon>delete_outline</mat-icon>
             </button>
